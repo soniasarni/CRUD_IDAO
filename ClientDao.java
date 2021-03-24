@@ -49,4 +49,20 @@ Connection connect = Getconnect.getConnection();
 		return liste;
 	}
 
+	@Override
+	public void delete(Client object) {
+		try {
+			PreparedStatement req= connect.prepareStatement("delete FROM Client "+"WHERE id=?" );
+			req.setInt(1,object.getId());
+			req.executeUpdate();
+			System.out.println("delete OK");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Delete KO");
+		}
+		// TODO Auto-generated method stub
+		
+	}
+
 }
